@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    
+
+
+    </head>
+    <body>
+        <div id="mobile-menu-open" class="shadow-large">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <!-- End #mobile-menu-toggle -->
+        <header>
+            <div id="mobile-menu-close">
+                <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <ul id="menu" class="shadow">
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#experience">FlowChart</a>
+                </li>
+                <li>
+                    <a href="#education">Team Members</a>
+                </li>
+               
+                <li>
+                    <a href="#skills">Techstack</a>
+                </li>
+                
+            </ul>
+        </header>
+
+        <div id="lead">
+            <div id="lead-content">
+                <h1 id="changing-text"></h1>
+                <h2>Mini Project</h2>
+                <div>
+                    <canvas id="sketchpad" width="1400" height="400" style="background-color: white;"></canvas>
+        <br>
+        <button onclick="clearSketchpad()" style="background-color: #f2f2f2; color: #3498db; border: 1px solid #ccc; padding: 10px 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s; width: 120px;">Clear</button>
+        <button onclick="submitDrawing()" style="background-color: #f2f2f2; color: #3498db; border: 1px solid #ccc; padding: 10px 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s; width: 120px;">Submit</button>
+
+                </div>
+                
+            </div>
+           
+        
+            <div id="lead-overlay"></div>
+        
+            <div id="lead-down">
+                <span>
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </span>
+            </div>
+           
+        </div>
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="heading">About the Project</h2>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            Will be filled later
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="experience" class="background-alt">
+            <h2 class="heading">FlowChart</h2>
+            <div id="experience-timeline">
+                <div data-date="Date">
+                    <h3>Step 1</h3>
+                    <h4>Title</h4>
+                    <p>
+                        About step 1
+                    </p>
+                </div>
+    
+                <div data-date="Date">
+                    <h3>Step 2</h3>
+                    <h4>Title</h4>
+                    <p>
+                        About step 2
+                    </p>
+                </div>
+    
+                <div data-date="Date">
+                    <h3>Step 3</h3>
+                    <h4>Title</h4>
+                    <p>
+                        About step 3
+                     </p>
+                </div>
+                
+            </div>
+        </div>
+        <div id="education">
+            <h2 class="heading">Team Members</h2>
+            <div class="education-block">
+                <h3>Adithya Narayana Holla</h3>
+                <span class="education-date">1MS21AI004</span>
+                <h4>Artificial Intelligence ad Machine Learning</h4>
+                <p>
+                    Contribution</p>
+            </div>
+            
+    
+            <div class="education-block">
+                <h3>Amoggha CH</h3>
+                <span class="education-date">1MS21AI006</span>
+                <h4>Artificial Intelligence ad Machine Learning</h4>
+                <p>
+                    Contribution
+                </p>
+            </div>
+          
+            <div class="education-block">
+                <h3>Manoj C Aradhya</h3>
+                <span class="education-date">1MS21AI031</span>
+                <h4>Artificial Intelligence ad Machine Learning</h4>
+                <p>
+                    Contribution
+                </p>
+            </div>
+    
+            <div class="education-block">
+                <h3>Padmapriya R</h3>
+                <span class="education-date">1MS21AI038</span>
+                <h4>Artificial Intelligence ad Machine Learning</h4>
+                <p>
+                    Contribution
+                </p>
+            </div>
+        </div>
+        <div id="skills" style="border: black;">
+            <h2 class="heading">Techstack</h2>
+            <ul>
+                <li>Tensorflow</li>
+                <li>Keras</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Scikit Learn</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>OpenCV</li>
+                <li>PyTorch</li>
+                <li>Matplotlib</li>
+                <li>Numpy</li>
+                <li>Pandas</li>
+                
+            </ul>
+        </div>
+        <hr>
+        <!-- <div id="contact">
+            <h2>Get in Touch</h2>
+            <div id="contact-form">
+                <form method="POST" action="https://formspree.io/email@email.com">
+                    <input type="hidden" name="_subject" value="Contact request from personal website" />
+                    <input type="email" name="_replyto" placeholder="Your email" required>
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            
+        </div>-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 copyright">
+                       
+                    </div>
+                    <div class="col-sm-2 top">
+                        <span id="to-top">
+                            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="col-sm-5 social">
+                        <ul>
+                            <li>
+                                <a href="https://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://stackoverflow.com/" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script>
+        <script>
+            // Array of sentences
+            var sentences = ["Adithya Narayana Holla", "Amoggha CH", "Manoj C Aradhya", "Padmapriya R"];
+            var currentSentenceIndex = 0; // Index to keep track of the current sentence
+            var changingTextElement = document.getElementById("changing-text");
+            var currentText = sentences[currentSentenceIndex];
+            var letterIndex = 0;
+        
+            function changeText() {
+                // Change letter by letter
+                changingTextElement.textContent = currentText.substring(0, letterIndex + 1);
+        
+                if (letterIndex < currentText.length - 1) {
+                    letterIndex++;
+                    setTimeout(changeText, 100); // Adjust speed here (milliseconds)
+                } else {
+                    // Move to the next sentence
+                    currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+                    currentText = sentences[currentSentenceIndex];
+                    letterIndex = 0;
+                    setTimeout(changeText, 2000); // Adjust delay before next sentence (milliseconds)
+                }
+            }
+        
+            // Start changing text
+            changeText();
+        </script>
+        <script>
+            const canvas = document.getElementById('sketchpad');
+            const ctx = canvas.getContext('2d');
+    
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+    
+            // Increase thickness by around 500%
+            ctx.lineWidth = 15;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+    
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+    
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+    
+            canvas.addEventListener('mouseup', () => isDrawing = false);
+            canvas.addEventListener('mouseout', () => isDrawing = false);
+    
+            function clearSketchpad() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+    
+            function submitDrawing() {
+                const imageData = canvas.toDataURL(); // Convert canvas to base64 image
+                fetch('/submit', {
+                    method: 'POST',
+                    body: JSON.stringify({ image: imageData }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Drawing submitted successfully!');
+                        clearSketchpad(); // Clear the sketchpad after successful submission
+                    } else {
+                        alert('Error submitting drawing!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error submitting drawing!');
+                });
+            }
+        </script>
+
+
+        
+    </body>
+</html>
