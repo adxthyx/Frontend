@@ -217,88 +217,187 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script>
         <script>
-            // Array of sentences
-            var sentences = ["Adithya Narayana Holla", "Amoggha CH", "Manoj C Aradhya", "Padmapriya R"];
-            var currentSentenceIndex = 0; // Index to keep track of the current sentence
-            var changingTextElement = document.getElementById("changing-text");
-            var currentText = sentences[currentSentenceIndex];
-            var letterIndex = 0;
+        //     // Array of sentences
+        //     var sentences = ["Adithya Narayana Holla", "Amoggha CH", "Manoj C Aradhya", "Padmapriya R"];
+        //     var currentSentenceIndex = 0; // Index to keep track of the current sentence
+        //     var changingTextElement = document.getElementById("changing-text");
+        //     var currentText = sentences[currentSentenceIndex];
+        //     var letterIndex = 0;
         
-            function changeText() {
-                // Change letter by letter
-                changingTextElement.textContent = currentText.substring(0, letterIndex + 1);
+        //     function changeText() {
+        //         // Change letter by letter
+        //         changingTextElement.textContent = currentText.substring(0, letterIndex + 1);
         
-                if (letterIndex < currentText.length - 1) {
-                    letterIndex++;
-                    setTimeout(changeText, 100); // Adjust speed here (milliseconds)
-                } else {
-                    // Move to the next sentence
-                    currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
-                    currentText = sentences[currentSentenceIndex];
-                    letterIndex = 0;
-                    setTimeout(changeText, 2000); // Adjust delay before next sentence (milliseconds)
-                }
-            }
+        //         if (letterIndex < currentText.length - 1) {
+        //             letterIndex++;
+        //             setTimeout(changeText, 100); // Adjust speed here (milliseconds)
+        //         } else {
+        //             // Move to the next sentence
+        //             currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+        //             currentText = sentences[currentSentenceIndex];
+        //             letterIndex = 0;
+        //             setTimeout(changeText, 2000); // Adjust delay before next sentence (milliseconds)
+        //         }
+        //     }
         
-            // Start changing text
-            changeText();
-        </script>
-        <script>
-            const canvas = document.getElementById('sketchpad');
-            const ctx = canvas.getContext('2d');
+        //     // Start changing text
+        //     changeText();
+        // </script>
+        // <script>
+        //     const canvas = document.getElementById('sketchpad');
+        //     const ctx = canvas.getContext('2d');
     
-            let isDrawing = false;
-            let lastX = 0;
-            let lastY = 0;
+        //     let isDrawing = false;
+        //     let lastX = 0;
+        //     let lastY = 0;
     
-            // Increase thickness by around 500%
-            ctx.lineWidth = 15;
-            ctx.lineJoin = 'round';
-            ctx.lineCap = 'round';
+        //     // Increase thickness by around 500%
+        //     ctx.lineWidth = 15;
+        //     ctx.lineJoin = 'round';
+        //     ctx.lineCap = 'round';
     
-            canvas.addEventListener('mousedown', (e) => {
-                isDrawing = true;
-                [lastX, lastY] = [e.offsetX, e.offsetY];
-            });
+        //     canvas.addEventListener('mousedown', (e) => {
+        //         isDrawing = true;
+        //         [lastX, lastY] = [e.offsetX, e.offsetY];
+        //     });
     
-            canvas.addEventListener('mousemove', (e) => {
-                if (!isDrawing) return;
-                ctx.beginPath();
-                ctx.moveTo(lastX, lastY);
-                ctx.lineTo(e.offsetX, e.offsetY);
-                ctx.stroke();
-                [lastX, lastY] = [e.offsetX, e.offsetY];
-            });
+        //     canvas.addEventListener('mousemove', (e) => {
+        //         if (!isDrawing) return;
+        //         ctx.beginPath();
+        //         ctx.moveTo(lastX, lastY);
+        //         ctx.lineTo(e.offsetX, e.offsetY);
+        //         ctx.stroke();
+        //         [lastX, lastY] = [e.offsetX, e.offsetY];
+        //     });
     
-            canvas.addEventListener('mouseup', () => isDrawing = false);
-            canvas.addEventListener('mouseout', () => isDrawing = false);
+        //     canvas.addEventListener('mouseup', () => isDrawing = false);
+        //     canvas.addEventListener('mouseout', () => isDrawing = false);
     
-            function clearSketchpad() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-            }
+        //     function clearSketchpad() {
+        //         Ctx.fillStyle = 'white';
+        //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     }
     
-            function submitDrawing() {
-                const imageData = canvas.toDataURL(); // Convert canvas to base64 image
-                fetch('/submit', {
-                    method: 'POST',
-                    body: JSON.stringify({ image: imageData }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Drawing submitted successfully!');
-                        clearSketchpad(); // Clear the sketchpad after successful submission
-                    } else {
-                        alert('Error submitting drawing!');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error submitting drawing!');
-                });
-            }
+        //     function submitDrawing() {
+        //         const imageData = canvas.toDataURL(); // Convert canvas to base64 image
+        //         fetch('/submit', {
+        //             method: 'POST',
+        //             body: JSON.stringify({ image: imageData }),
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             }
+        //         })
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 alert('Drawing submitted successfully!');
+        //                 clearSketchpad(); // Clear the sketchpad after successful submission
+        //             } else {
+        //                 alert('Error submitting drawing!');
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //             alert('Error submitting drawing!');
+        //         });
+        //     }
+
+        // Array of sentences
+var sentences = ["Adithya Narayana Holla", "Amoggha CH", "Manoj C Aradhya", "Padmapriya R"];
+var currentSentenceIndex = 0; // Index to keep track of the current sentence
+var changingTextElement = document.getElementById("changing-text");
+var currentText = sentences[currentSentenceIndex];
+var letterIndex = 0;
+
+function changeText() {
+    // Change letter by letter
+    changingTextElement.textContent = currentText.substring(0, letterIndex + 1);
+
+    if (letterIndex < currentText.length - 1) {
+        letterIndex++;
+        setTimeout(changeText, 100); // Adjust speed here (milliseconds)
+    } else {
+        // Move to the next sentence
+        currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+        currentText = sentences[currentSentenceIndex];
+        letterIndex = 0;
+        setTimeout(changeText, 2000); // Adjust delay before next sentence (milliseconds)
+    }
+}
+
+// Start changing text
+changeText();
+
+const canvas = document.getElementById('sketchpad');
+const ctx = canvas.getContext('2d');
+
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+
+// Increase thickness by around 500%
+ctx.lineWidth = 15;
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (!isDrawing) return;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
+
+function clearSketchpad() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function submitDrawing() {
+    // Create a new canvas to hold the drawing with a white background
+    const newCanvas = document.createElement('canvas');
+    newCanvas.width = canvas.width;
+    newCanvas.height = canvas.height;
+    const newCtx = newCanvas.getContext('2d');
+
+    // Fill the new canvas with a white background
+    newCtx.fillStyle = 'white';
+    newCtx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+
+    // Draw the original canvas onto the new canvas
+    newCtx.drawImage(canvas, 0, 0);
+
+    // Convert the new canvas to JPEG
+    const imageData = newCanvas.toDataURL('image/jpeg');
+
+    fetch('/submit', {
+        method: 'POST',
+        body: JSON.stringify({ image: imageData }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Drawing submitted successfully!');
+            clearSketchpad(); // Clear the sketchpad after successful submission
+        } else {
+            alert('Error submitting drawing!');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting drawing!');
+    });
+}
+
         </script>
 
 
